@@ -1,0 +1,583 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.15)  10 OCT 2015 12:58
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**cv_report_tex.tex
+(./cv_report_tex.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen114
+\captionmargin@=\dimen115
+\captionwidth=\dimen116
+\caption@tempdima=\dimen117
+\caption@indent=\dimen118
+\caption@parindent=\dimen119
+\caption@hangindent=\dimen120
+)
+\c@ContinuedFloat=\count100
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count101
+\c@subtable=\count102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count103
+\float@exts=\toks20
+\float@box=\box28
+\@float@everytoks=\toks21
+\@floatcapt=\box29
+)
+(./cv_report_tex.aux)
+\openout1 = `cv_report_tex.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count104
+\scratchdimen=\dimen121
+\scratchbox=\box30
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen122
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
+\everyMPtoPDFconversion=\toks23
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+<./result_plot/correct/1_path_plot.png, id=1, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/1_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/1_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/1_path_plot.png used on input li
+ne 28.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/2_path_plot.png, id=3, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/2_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/2_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/2_path_plot.png used on input li
+ne 32.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/3_path_plot.png, id=4, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/3_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/3_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/3_path_plot.png used on input li
+ne 40.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/4_path_plot.png, id=5, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/4_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/4_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/4_path_plot.png used on input li
+ne 44.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [1
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./resul
+t_plot/correct/1_path_plot.png> <./result_plot/correct/2_path_plot.png>]
+<./result_plot/correct/5_path_plot.png, id=21, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/5_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/5_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/5_path_plot.png used on input li
+ne 53.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/6_path_plot.png, id=22, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/6_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/6_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/6_path_plot.png used on input li
+ne 57.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/7_path_plot.png, id=23, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/7_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/7_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/7_path_plot.png used on input li
+ne 66.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/8_path_plot.png, id=24, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/8_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/8_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/8_path_plot.png used on input li
+ne 70.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/9_path_plot.png, id=25, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/9_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/9_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/9_path_plot.png used on input li
+ne 79.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/correct/10_path_plot.png, id=26, 3312.375pt x 2559.5625pt>
+File: ./result_plot/correct/10_path_plot.png Graphic file (type png)
+
+<use ./result_plot/correct/10_path_plot.png>
+Package pdftex.def Info: ./result_plot/correct/10_path_plot.png used on input l
+ine 83.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [2 <./result_plot/correct/3_path_plot.png> <./result_plot/correct/4_path_plot.
+png> <./result_plot/correct/5_path_plot.png> <./result_plot/correct/6_path_plot
+.png> <./result_plot/correct/7_path_plot.png> <./result_plot/correct/8_path_plo
+t.png>]
+<./result_plot/fix_k/1wrong_path_plot.png, id=36, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/1wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/1wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/1wrong_path_plot.png used on input
+ line 103.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/2wrong_path_plot.png, id=37, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/2wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/2wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/2wrong_path_plot.png used on input
+ line 107.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/3wrong_path_plot.png, id=38, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/3wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/3wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/3wrong_path_plot.png used on input
+ line 116.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/4wrong_path_plot.png, id=39, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/4wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/4wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/4wrong_path_plot.png used on input
+ line 120.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/5wrong_path_plot.png, id=40, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/5wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/5wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/5wrong_path_plot.png used on input
+ line 129.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/6wrong_path_plot.png, id=41, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/6wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/6wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/6wrong_path_plot.png used on input
+ line 133.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [3 <./result_plot/correct/9_path_plot.png> <./result_plot/correct/10_path_plot
+.png> <./result_plot/fix_k/1wrong_path_plot.png> <./result_plot/fix_k/2wrong_pa
+th_plot.png> <./result_plot/fix_k/3wrong_path_plot.png> <./result_plot/fix_k/4w
+rong_path_plot.png>]
+<./result_plot/fix_k/7wrong_path_plot.png, id=51, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/7wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/7wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/7wrong_path_plot.png used on input
+ line 142.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/8wrong_path_plot.png, id=52, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/8wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/8wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/8wrong_path_plot.png used on input
+ line 146.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/9wrong_path_plot.png, id=53, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/9wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/9wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/9wrong_path_plot.png used on input
+ line 155.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/fix_k/10wrong_path_plot.png, id=54, 3312.375pt x 2559.5625pt>
+File: ./result_plot/fix_k/10wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/fix_k/10wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/fix_k/10wrong_path_plot.png used on inpu
+t line 159.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/1wrong_path_plot.png, id=55, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/1wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/1wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/1wrong_path_plot.png used on in
+put line 178.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/2wrong_path_plot.png, id=56, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/2wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/2wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/2wrong_path_plot.png used on in
+put line 182.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [4 <./result_plot/fix_k/5wrong_path_plot.png> <./result_plot/fix_k/6wrong_path
+_plot.png> <./result_plot/fix_k/7wrong_path_plot.png> <./result_plot/fix_k/8wro
+ng_path_plot.png> <./result_plot/fix_k/9wrong_path_plot.png> <./result_plot/fix
+_k/10wrong_path_plot.png>]
+<./result_plot/ll_use_k/3wrong_path_plot.png, id=66, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/3wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/3wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/3wrong_path_plot.png used on in
+put line 191.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/4wrong_path_plot.png, id=67, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/4wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/4wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/4wrong_path_plot.png used on in
+put line 195.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/5wrong_path_plot.png, id=68, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/5wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/5wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/5wrong_path_plot.png used on in
+put line 204.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/6wrong_path_plot.png, id=69, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/6wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/6wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/6wrong_path_plot.png used on in
+put line 208.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/7wrong_path_plot.png, id=70, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/7wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/7wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/7wrong_path_plot.png used on in
+put line 217.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/8wrong_path_plot.png, id=71, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/8wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/8wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/8wrong_path_plot.png used on in
+put line 221.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [5 <./result_plot/ll_use_k/1wrong_path_plot.png> <./result_plot/ll_use_k/2wron
+g_path_plot.png> <./result_plot/ll_use_k/3wrong_path_plot.png> <./result_plot/l
+l_use_k/4wrong_path_plot.png> <./result_plot/ll_use_k/5wrong_path_plot.png> <./
+result_plot/ll_use_k/6wrong_path_plot.png>]
+<./result_plot/ll_use_k/9wrong_path_plot.png, id=81, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/9wrong_path_plot.png Graphic file (type png)
+
+<use ./result_plot/ll_use_k/9wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/9wrong_path_plot.png used on in
+put line 230.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/ll_use_k/10wrong_path_plot.png, id=82, 3312.375pt x 2559.5625pt>
+File: ./result_plot/ll_use_k/10wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/ll_use_k/10wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/ll_use_k/10wrong_path_plot.png used on i
+nput line 234.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/1wrong_path_plot.png, id=83, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/1wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/1wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/1wrong_path_plot.png used on i
+nput line 252.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/2wrong_path_plot.png, id=84, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/2wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/2wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/2wrong_path_plot.png used on i
+nput line 256.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/3wrong_path_plot.png, id=85, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/3wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/3wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/3wrong_path_plot.png used on i
+nput line 265.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/4wrong_path_plot.png, id=86, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/4wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/4wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/4wrong_path_plot.png used on i
+nput line 269.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [6 <./result_plot/ll_use_k/7wrong_path_plot.png> <./result_plot/ll_use_k/8wron
+g_path_plot.png> <./result_plot/ll_use_k/9wrong_path_plot.png> <./result_plot/l
+l_use_k/10wrong_path_plot.png> <./result_plot/cv_square/1wrong_path_plot.png> <
+./result_plot/cv_square/2wrong_path_plot.png>]
+<./result_plot/cv_square/5wrong_path_plot.png, id=96, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/5wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/5wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/5wrong_path_plot.png used on i
+nput line 278.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/6wrong_path_plot.png, id=97, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/6wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/6wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/6wrong_path_plot.png used on i
+nput line 282.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/7wrong_path_plot.png, id=98, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/7wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/7wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/7wrong_path_plot.png used on i
+nput line 291.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/8wrong_path_plot.png, id=99, 3312.375pt x 2559.5625pt>
+File: ./result_plot/cv_square/8wrong_path_plot.png Graphic file (type png)
+<use ./result_plot/cv_square/8wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/8wrong_path_plot.png used on i
+nput line 295.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/9wrong_path_plot.png, id=100, 3312.375pt x 2559.5625pt
+>
+File: ./result_plot/cv_square/9wrong_path_plot.png Graphic file (type png)
+ <use ./result_plot/cv_square/9wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/9wrong_path_plot.png used on i
+nput line 304.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+
+<./result_plot/cv_square/10wrong_path_plot.png, id=101, 3312.375pt x 2559.5625p
+t>
+File: ./result_plot/cv_square/10wrong_path_plot.png Graphic file (type png)
+ <use ./result_plot/cv_square/10wrong_path_plot.png>
+Package pdftex.def Info: ./result_plot/cv_square/10wrong_path_plot.png used on 
+input line 308.
+(pdftex.def)             Requested size: 172.5pt x 133.25815pt.
+ [7 <./result_plot/cv_square/3wrong_path_plot.png> <./result_plot/cv_square/4wr
+ong_path_plot.png> <./result_plot/cv_square/5wrong_path_plot.png> <./result_plo
+t/cv_square/6wrong_path_plot.png> <./result_plot/cv_square/7wrong_path_plot.png
+> <./result_plot/cv_square/8wrong_path_plot.png>] [8 <./result_plot/cv_square/9
+wrong_path_plot.png> <./result_plot/cv_square/10wrong_path_plot.png>] (./cv_rep
+ort_tex.aux) ) 
+Here is how much of TeX's memory you used:
+ 3397 strings out of 493091
+ 56406 string characters out of 6134964
+ 112464 words of memory out of 5000000
+ 6849 multiletter control sequences out of 15000+600000
+ 4699 words of font info for 18 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,7n,38p,437b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+>
+Output written on cv_report_tex.pdf (8 pages, 4662125 bytes).
+PDF statistics:
+ 144 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+

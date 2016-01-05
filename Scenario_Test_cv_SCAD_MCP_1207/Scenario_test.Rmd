@@ -1,0 +1,156 @@
+---
+title: "Scenario_test(5) SCAD MCP lambda by cross-validation"
+output: pdf_document
+---
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+
+n: 100
+
+```{r,echo=FALSE}
+load("Scenario_beta_2_n_100.Rdata")
+```
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+
+n: 300
+
+```{r,echo=FALSE}
+load("Scenario_beta_2_n_300.Rdata")
+```
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+
+n: 100
+
+```{r,echo=FALSE}
+load("Scenario_beta_3_n_100.Rdata")
+```
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+
+n: 300
+
+```{r,echo=FALSE}
+load("Scenario_beta_3_n_300.Rdata")
+```
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+
+n: 500
+
+```{r,echo=FALSE}
+load("Scenario_beta_3_n_500.Rdata")
+```
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+

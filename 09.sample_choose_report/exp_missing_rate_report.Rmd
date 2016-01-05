@@ -1,0 +1,105 @@
+---
+title: "exp missing rate report"
+output: pdf_document
+---
+
+The missing function is:
+$$
+p = \frac{1}{\exp(\gamma \times |y|)}
+$$
+
+```{r,echo=FALSE}
+load("table_lasso_missing_08_exp.Rdata")
+load("table_SCAD_missing_08_exp.Rdata")
+load("table_MCP_missing_08_exp.Rdata")
+load("table_lasso_missing_06_exp.Rdata")
+load("table_SCAD_missing_06_exp.Rdata")
+load("table_MCP_missing_06_exp.Rdata")
+```
+
+
+For missing rate at 80%, for lasso,
+```{r,echo=FALSE}
+table_lasso_missing_08_exp$result_table
+```
+
+For SCAD,
+```{r,echo=FALSE}
+table_SCAD_missing_08_exp$result_table
+```
+
+For MCP,
+```{r,echo=FALSE}
+table_MCP_missing_08_exp$result_table
+```
+
+For missing rate at 60%, for lasso,
+```{r,echo=FALSE}
+table_lasso_missing_06_exp$result_table
+```
+
+For SCAD,
+```{r,echo=FALSE}
+table_SCAD_missing_06_exp$result_table
+```
+
+For MCP,
+```{r,echo=FALSE}
+table_MCP_missing_06_exp$result_table
+```
+
+```{r,echo=FALSE}
+library(png)
+library(grid)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_full_08_histogram.png")
+grid.raster(img)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_full_08_qqnorm.png")
+grid.raster(img)
+```
+
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_complete_08_histogram.png")
+grid.raster(img)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_complete_08_qqnorm.png")
+grid.raster(img)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_full_06_histogram.png")
+grid.raster(img)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_full_06_qqnorm.png")
+grid.raster(img)
+```
+
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_complete_06_histogram.png")
+grid.raster(img)
+```
+
+```{r,fig.width=4, fig.height=4,echo=FALSE}
+img <- readPNG("../01.normality_plot/exp_complete_06_qqnorm.png")
+grid.raster(img)
+```
+
+
+
+
+
+
+
+
+

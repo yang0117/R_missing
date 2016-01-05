@@ -1,0 +1,98 @@
+---
+title: "method17_true_initial"
+output: pdf_document
+---
+Scenario A
+```{r,echo=FALSE}
+load("Scenario_A.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+\pagebreak
+Scenario B
+```{r,echo=FALSE}
+load("Scenario_B.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+\pagebreak
+Scenario C
+```{r,echo=FALSE}
+load("Scenario_C.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+\pagebreak
+Scenario D
+```{r,echo=FALSE}
+load("Scenario_D.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+
+\pagebreak
+Scenario E
+```{r,echo=FALSE}
+load("Scenario_E.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+
+\pagebreak
+Scenario F
+```{r,echo=FALSE}
+load("Scenario_F.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],4))
+}
+```
+
+
+
+

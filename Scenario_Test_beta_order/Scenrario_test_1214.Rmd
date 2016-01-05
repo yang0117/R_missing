@@ -1,0 +1,52 @@
+---
+title: "Scenrario_test_1214"
+output: pdf_document
+---
+
+```{r, echo=FALSE, results='asis'}
+#load all file name
+files <-list.files(path = "./data",full.names = T)
+
+for (i in 1:length(files)){
+  #load current .rdata file
+  load(files[i])
+  #print information for current .rdata file
+  print(paste("beta : ",paste(table_res1$beta_estimation_all$beta,collapse = " ")))
+  print(paste("sample size is: ",as.character(table_res1$beta_estimation_all$sample_size)))
+  #print current result table
+  table_list <- table_res1$result_list
+  for(i in 1:length(table_list)){
+    print(names(table_list)[i])
+    #print(xtable::xtable(mtcars), type = "latex")
+    #print(knitr::kable(round(table_list[[i]],3)), type = "latex")
+    print(knitr::kable(round(table_list[[i]],3)),scalebox='0.5')
+  }
+  
+  #print difference list
+  cat("\nMean difference between estimation and true beta value\n")
+  
+  diff_list <- table_res1$beta_diff
+  mean_row_name <- character(length(diff_list))
+  mean_template <- colMeans(diff_list[[1]])
+  mean_matrix <- matrix(-999,length(diff_list),length(mean_template))
+  colnames(mean_matrix) <- names(mean_template)
+  #caculate and print all means
+  for(i in 1:length(diff_list)){
+    mean_row_name[i] <-  names(diff_list)[i]
+    mean_matrix[i,] <- round(colMeans(diff_list[[i]]),3)
+  }
+  rownames(mean_matrix) <- mean_row_name
+  print(mean_matrix)
+  
+  cat("\ndifference between estimation and true beta value\n")
+  for(i in 1:length(diff_list)){
+    print(names(diff_list)[i])
+    print(round(diff_list[[i]],3))
+  }
+  cat("\n\n\\pagebreak\n")
+}
+```
+
+
+
+

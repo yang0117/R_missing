@@ -1,0 +1,174 @@
+---
+title: "Scenario_test(6)"
+output: pdf_document
+---
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: postive
+```{r,echo=FALSE}
+load("beta2_missing_positive.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+\pagebreak
+
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: xy
+```{r,echo=FALSE}
+load("beta2_missing_xy.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+\pagebreak
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: exp
+```{r,echo=FALSE}
+load("beta2_missing_exp.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+
+
+
+\pagebreak
+
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: postive
+```{r,echo=FALSE}
+load("beta3_missing_positive.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+\pagebreak
+
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: xy
+```{r,echo=FALSE}
+load("beta3_missing_xy.Rdata")
+```
+
+
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: exp
+```{r,echo=FALSE}
+load("beta3_missing_exp.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+}
+```
+
+\pagebreak

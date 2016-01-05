@@ -1,0 +1,2 @@
+Questions:
+A. 09.02.result_table_generate.R(beta_result_list$beta_method3_our[,-1] should not have[,-1])

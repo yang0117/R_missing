@@ -1,0 +1,62 @@
+0/0
+x <- seq(-2,2,by=1)
+5/x
+warnings
+warnings()
+log(-1)
+0/x
+warnings
+warnings()
+log(x)
+x <- seq(-2,2,by=1)#
+y <- numeric(5) #
+for (i in 1:length(x)){#
+	y[i] <- log(x[i])#
+}
+y
+choose(1000,2)
+??aggregate
+?aggregate
+?sample
+d <- read.table(text="#
+subject    time.ms  V3#
+1      1   stringA#
+1      12   stringB#
+1      22     stringC#
+2      1    stringB#
+2      14   stringC#
+2      25   stringA#
+", header=TRUE)#
+#
+ag <- aggregate(time.ms~subject, data=d, max)#
+merge(ag, d)
+d
+ag <- aggregate(time.ms, data=d, max)
+ag <- aggregate(d, time.ms, max)
+ag <- aggregate(d, d$time.ms, max)
+x <- sample(1:10,10)#
+y <- rnorm(10)#
+z <- cbind(x,y)#
+z[which.max(z[,1]),]
+rm(list=ls())
+source("01.sample_generator.R")
+source("07.cv_esimator.R")
+k=5#
+test_time <- 10#
+for(i in 1:10){#
+  sample1 <- sample_generator1(n=100,beta_vector=c(1.5,2,3,rep(0,5)))#
+  sample_original <- subset(sample1$dataset,missing_indicator==1,select = -missing_indicator)#
+  sample_logistics <- sample1$logistic_sample#
+  lam_path1 <- glmnet(as.matrix(sample_logistics[,-1]),factor(sample_logistics[,1],levels=c(0,1)),family="binomial")$lambda#
+  lam_path1 <- lam_path1[seq(1,length(lam_path1),by=3)]#
+  test1 <- initial_universial_calculator(sample_original=sample_original,sample_logistic=sample_logistic,k=k,#
+                                         lam_indicator=lam_path1,#
+                                         penalty_indicator="lasso")#
+  filename1 = paste("./data_driven_test/",i,"wrong_path_plot",".png",sep = "")  #
+  png(filename=filename1,units="in", width=11, height=8.5, res=300)#
+  plot(test1$lambda_path,test1$lambda_path_cv)#
+  dev.off()#
+}
+rm(list=ls())
+ls()
+quit()

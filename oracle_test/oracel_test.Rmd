@@ -1,0 +1,75 @@
+---
+title: "oracle_test"
+output: 
+    pdf_document:
+      includes:
+        in_header: header.tex
+---
+
+```{r, echo=FALSE, results='asis'}
+#load all file name
+files <-list.files(path = "./data",full.names = T)
+
+for (i in 1:length(files)){
+  #load current .rdata file
+  load(files[i])
+  #print information for current .rdata file
+  cat("\n\nbeta : ",paste(table_res1$beta,collapse = " "),"  ")
+  cat("intercept : ",table_res1$intercept,"\n\n")
+  cat("sample size : ", as.character(table_res1$sample_size),"\n\n")
+  cat("simulation time : ", table_res1$simulation_time,"\n\n")
+  cat("loss_rate: ", table_res1$lose_rate,"\n\n")
+  cat("average sample size for full data: ", table_res1$mean_sample_full,"\n\n")
+  cat("average sample size for complete data: ", table_res1$mean_sample_complete,"\n\n")
+  cat("average sample size for logistic data: ", table_res1$mean_sample_logistic,"\n\n")
+  cat("error_independent: ", table_res1$error_independent,"\n\n")
+  cat("missing_method: ", table_res1$missing_method,"\n\n")
+  cat("missing_location: ", table_res1$x_missing_location,"\n\n")
+  cat("file_name: ", files[i],"\n\n")
+  #print(paste("beta : ",paste(table_res1$beta_estimation_all$beta,collapse = " ")))
+  #print(paste("sample size is: ",as.character(table_res1$beta_estimation_all$sample_size)))
+  #print current result table
+  
+  table_list <- table_res1$oracle_beta_est
+  #temaple fro result_matrix
+  result_matrix <- matrix(-99,length(table_list),dim(table_list[[1]])[2])
+  rownames(result_matrix) <- names(table_list)
+  colnames(result_matrix) <- colnames(table_list[[1]])
+  
+  mean_matrix <- result_matrix
+  sd_matrix <- result_matrix
+  for(i in 1:length(table_list)){
+    #print(xtable::xtable(mtcars), type = "latex")
+    #print(knitr::kable(round(table_list[[i]],3)), type = "latex")
+    mean_matrix[i,] <- round(colMeans(table_list[[i]]),4)
+    sd_matrix[i,] <- round(apply(table_list[[i]],2,sd),4)
+  }
+  cat("\n\nthe estimation mean is\n\n")
+  print(knitr::kable(mean_matrix), type = "latex")
+  cat("\n\nthe estimation sd is\n\n")
+  print(knitr::kable(sd_matrix), type = "latex")
+  
+  #print bias
+  beta_non_zero <- c(table_res1$intercept,table_res1$beta[which(table_res1$beta!=0)])
+  
+  bias_mean_matrix <- result_matrix
+  bias_sd_matrix <- result_matrix
+  
+  for(i in 1:length(table_list)){
+    current_bias_matrix <- t(t(table_list[[i]])-beta_non_zero)
+    bias_mean_matrix[i,] <- round(colMeans(current_bias_matrix),4)
+    bias_sd_matrix[i,] <- round(apply(current_bias_matrix,2,sd),4)
+  }
+  
+  cat("\n\nthe bias mean is\n\n")
+  print(knitr::kable(bias_mean_matrix), type = "latex")
+  cat("\n\nthe bias sd is\n\n")
+  print(knitr::kable(bias_sd_matrix), type = "latex")
+  
+  cat("\n\n\\pagebreak\n")
+}
+```
+
+
+
+

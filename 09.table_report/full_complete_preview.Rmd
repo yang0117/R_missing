@@ -1,0 +1,28 @@
+---
+title: "full and complete table preview"
+output: pdf_document
+---
+
+This report just inlcude the full data(method1) and complete data(method). The purpose for this report is to show the final table formation and discuss the potential coefficient for relative bias(rho).
+
+I ran two simulations this time. Different between those two is the intercept. For first simulation, I set the intercept to 2 when I generate the full data. i.e. $Y=2+\beta \times x$. For second simulation, I set the intercept to 0 when I generate the full data.i.e. $Y=0+\beta \times x$.
+
+The sample size is 250, the simulation time is 100. True beta is c(1.5,2,3,rep(0,5)), k for cross validation is 5.
+
+The L_inf_norm and rho is the average of all simulation as what we discussed. When rho = 0, it means we do not force any beta estimation to 0.
+
+```{r,echo=FALSE}
+load("09.full_complete.Rdata")
+```
+
+The first reslut is(intercept=2)
+```{r,echo=FALSE}
+res_intercept
+```
+
+The second reslut is(intercept=0)
+
+```{r, echo=FALSE}
+res_without_intercept
+```
+

@@ -1,0 +1,197 @@
+---
+title: "Scenario_test(6)"
+output:
+    pdf_document:
+        includes:
+            in_header: header.tex
+---
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: xy
+postion: 2
+```{r,echo=FALSE}
+load("beta2_xy_position_2.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: xy
+postion: 3
+```{r,echo=FALSE}
+load("beta2_xy_position_3.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+
+beta: c(2,0.5,rep(0,2),1,rep(0,3))
+missing: xy
+postion: 8
+```{r,echo=FALSE}
+load("beta2_xy_position_8.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: xy
+postion: 2
+```{r,echo=FALSE}
+load("beta3_xy_position_2.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: xy
+postion: 3
+```{r,echo=FALSE}
+load("beta3_xy_position_3.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```
+
+\pagebreak
+
+beta: c(3,1.5,rep(0,2),2,rep(0,3))
+missing: xy
+postion: 8
+```{r,echo=FALSE}
+load("beta3_xy_position_8.Rdata")
+```
+
+
+```{r,echo=FALSE}
+table_list <- table_res1$result_list
+for(i in 1:length(table_list)){
+  print(names(table_list)[i])
+  print(round(table_list[[i]],3))
+}
+```
+
+
+
+Difference between estimation and true beta value
+
+```{r,echo=FALSE}
+diff_list <- table_res1$beta_diff
+for(i in 1:length(diff_list)){
+  print(names(diff_list)[i])
+  print(round(diff_list[[i]],3))
+  print("the mean bias is:")
+  print(round(colMeans(diff_list[[i]]),3))
+}
+```

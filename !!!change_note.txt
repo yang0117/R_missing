@@ -1,0 +1,5 @@
+10/20/2015 let method1 and method2 can use MCP and SCAD
+
+A. 08.lasso_guassian_our_method_estimation.R(add penalty options to beta_est_lasso_gaussian, change beta_est_lasso_gaussian to beta_est_guassian)
+
+B. 09.01.beta_matrix_generator.R(method_indicator options to beta_list_all_method,loss_rate)

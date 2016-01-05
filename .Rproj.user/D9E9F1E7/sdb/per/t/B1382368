@@ -1,0 +1,17 @@
+{
+    "contents" : "---\ntitle: \"Scenrario_test_1223\"\noutput: \n    pdf_document:\n      includes:\n        in_header: header.tex\n---\n\n```{r, echo=FALSE, results='asis'}\n#load all file name\nfiles <-list.files(path = \"./data\",full.names = T)\n# print(substr(getwd(),20,nchar(getwd())))\n# load(files[3])\n# print(files[3])\n# print(list())\n# print(length(files))\n\nfor (i in 1:length(files)){\n  #load current .rdata file\n\n   load(files[i])\n  #print information for current .rdata file\n  cat(\"\\n\\n\\\\blandscape\\n\")\n  cat(\"\\n\\nbeta : \",paste(table_res1$beta_estimation_all$beta,collapse = \" \"),\"\\n\\n\")\n  cat(\"intercept : \",table_res1$beta_estimation_all$intercept,\"\\n\\n\")\n  cat(\"sample size : \", as.character(table_res1$beta_estimation_all$sample_size),\"\\n\\n\")\n  cat(\"simulation time : \", table_res1$beta_estimation_all$simulation_time,\"\\n\\n\")\n  cat(\"loss_rate: \", table_res1$beta_estimation_all$lose_rate,\"\\n\\n\")\n  cat(\"error_independent: \", table_res1$beta_estimation_all$error_independent,\"\\n\\n\")\n  cat(\"missing_method: \", table_res1$beta_estimation_all$missing_method,\"\\n\\n\")\n  cat(\"missing_location: \", table_res1$beta_estimation_all$x_missing_location,\"\\n\\n\")\n  cat(\"file_name: \", files[i],\"\\n\\n\")\n  #print(paste(\"beta : \",paste(table_res1$beta_estimation_all$beta,collapse = \" \")))\n  #print(paste(\"sample size is: \",as.character(table_res1$beta_estimation_all$sample_size)))\n  #print current result table\n  table_list <- table_res1$result_list\n  for(i in 1:length(table_list)){\n    cat(\"\\n\\n\",names(table_list)[i],\"\\n\\n\")\n    #print(xtable::xtable(mtcars), type = \"latex\")\n    #print(knitr::kable(round(table_list[[i]],3)), type = \"latex\")\n    print(knitr::kable(round(table_list[[i]],3)),type = \"latex\")\n  }\n  cat(\"\\n\\n\\\\elandscape\\n\")\n  \n  #print difference list\n  diff_list <- table_res1$beta_diff\n  \n  mean_sd_template <- matrix(-99,length(diff_list),dim(diff_list[[1]])[2])\n  colnames(mean_sd_template) <- colnames(diff_list[[1]])\n  rownames(mean_sd_template) <- names(diff_list)\n  \n  #caculate and print all means\n  mean_matrix <- mean_sd_template\n  for(i in 1:length(diff_list)){\n    #mean_row_name[i] <-  names(diff_list)[i]\n    mean_matrix[i,] <- round(colMeans(diff_list[[i]]),3)\n  }\n  cat(\"\\nMean difference between estimation and true beta value\\n\\n\")\n  print(knitr::kable(round(mean_matrix,3)),type = \"latex\")\n  #caculate and print all sd\n  sd_matrix <- mean_sd_template\n  for(i in 1:length(diff_list)){\n    #sd_row_name[i] <-  names(diff_list)[i]\n    sd_matrix[i,] <- round(apply(diff_list[[i]],2,sd),3)\n  }\n  cat(\"\\n sd difference between estimation and true beta value\\n\\n\")\n  print(knitr::kable(round(sd_matrix,3)),type = \"latex\")\n  cat(\"\\n\\n\\\\pagebreak\\n\")\n}\n```\n\n\n\n\n",
+    "created" : 1451426185924.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1335548275",
+    "id" : "B1382368",
+    "lastKnownWriteTime" : 1451427191,
+    "path" : "~/Dropbox/YangYang/01.pseudo_likelihood/02.R_simulation_scenario_sample_test/Scenario_Test_1223/Scenrario_1223_without_entry.Rmd",
+    "project_path" : "Scenario_Test_1223/Scenrario_1223_without_entry.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

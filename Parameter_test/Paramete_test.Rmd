@@ -1,0 +1,95 @@
+---
+title: "parameter test"
+output: pdf_document
+---
+
+```{r,echo=FALSE}
+load("parameter_test.Rdata")
+```
+
+For $\beta=(1.5,2,3,0(5))$
+For lasso,
+```{r}
+result_case1$lasso_result
+```
+The mean is
+```{r}
+result_case1$lasso_mean
+```
+\pagebreak
+For SCAD,
+```{r}
+result_case1$SCAD_result
+```
+The mean is
+```{r}
+result_case1$SCAD_mean
+```
+\pagebreak
+For MCP,
+```{r}
+result_case1$MCP_result
+```
+The mean is
+```{r}
+result_case1$MCP_mean
+```
+
+
+\pagebreak
+For $\beta=(1.5,2,3,0(45))$
+For lasso,
+```{r}
+result_case2$lasso_result
+```
+The mean is
+```{r}
+result_case2$lasso_mean
+```
+\pagebreak
+For SCAD,
+```{r}
+result_case2$SCAD_result
+```
+The mean is
+```{r}
+result_case2$SCAD_mean
+```
+\pagebreak
+For MCP,
+```{r}
+result_case2$MCP_result
+```
+The mean is
+```{r}
+result_case2$MCP_mean
+```
+
+\pagebreak
+For $\beta=(300,400,500,0(45))$
+For lasso,
+```{r}
+result_case3$lasso_result
+```
+The mean is
+```{r}
+result_case3$lasso_mean
+```
+\pagebreak
+For SCAD,
+```{r}
+result_case3$SCAD_result
+```
+The mean is
+```{r}
+result_case3$SCAD_mean
+```
+\pagebreak
+For MCP,
+```{r}
+result_case3$MCP_result
+```
+The mean is
+```{r}
+result_case3$MCP_mean
+```

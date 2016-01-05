@@ -1,0 +1,19 @@
+---
+title: "all_table_report"
+output: pdf_document
+---
+
+```{r,echo=FALSE}
+load("table_all.Rdata")
+```
+
+Here is report for all three table.
+
+The sample size is 250, the simulation time is 100. True beta is c(1.5,2,3,rep(0,5)), k for cross validation is 5.
+
+We can see when we do our variavle selection at 2*rho level. Our method perform best. However, the rho in our method is also the biggest one. I think one reason is the pairwise likelihood method also introduce some noise in our dataset.
+
+```{r,echo=FALSE}
+table_res1$result_table
+```
+

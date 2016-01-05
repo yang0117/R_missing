@@ -1,0 +1,48 @@
+0/0
+x <- seq(-2,2,by=1)
+5/x
+warnings
+warnings()
+log(-1)
+0/x
+warnings
+warnings()
+log(x)
+x <- seq(-2,2,by=1)#
+y <- numeric(5) #
+for (i in 1:length(x)){#
+	y[i] <- log(x[i])#
+}
+y
+choose(1000,2)
+??aggregate
+?aggregate
+?sample
+d <- read.table(text="#
+subject    time.ms  V3#
+1      1   stringA#
+1      12   stringB#
+1      22     stringC#
+2      1    stringB#
+2      14   stringC#
+2      25   stringA#
+", header=TRUE)#
+#
+ag <- aggregate(time.ms~subject, data=d, max)#
+merge(ag, d)
+d
+ag <- aggregate(time.ms, data=d, max)
+ag <- aggregate(d, time.ms, max)
+ag <- aggregate(d, d$time.ms, max)
+x <- sample(1:10,10)#
+y <- rnorm(10)#
+z <- cbind(x,y)#
+z[which.max(z[,1]),]
+?text
+choose(15,9)
+choose(15,2)
+exp(-7)
+?round
+x2 <- pi * 100^(-1:3)#
+round(x2, 3)#
+signif(x2, 3)

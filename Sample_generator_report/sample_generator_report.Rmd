@@ -1,0 +1,27 @@
+---
+title: "Sample_Generator Report"
+output: pdf_document
+---
+
+```{r,echo=FALSE,results='hide'}
+source("test_code.R")
+```
+
+For gamma estimator, we have:
+```{r}
+mean(gamma_test)
+var(gamma_test)
+truehist(gamma_test)
+shapiro.test(gamma_test)
+```
+
+For missing rate, we have:
+```{r}
+mean(missing_test)
+var(missing_test)
+truehist(missing_test)
+shapiro.test(missing_test)
+```
+
+
+

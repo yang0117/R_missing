@@ -1,0 +1,5 @@
+Questions:
+
+Warning message:
+In ncvreg(X = X, y = y, ...) :
+  Algorithm failed to converge for some values of lambda
