@@ -72,11 +72,23 @@ sample_generator1 <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), interce
     #get the probability vecotr
     x_beta <- x %*% beta_vector + intercept
     p_vector <- exp(x_beta)/(1+exp(x_beta))
-    hist(p_vector)
     if (length(p_vector) != n) stop("logistic: length of p_vector is not n (sample_generator)")
     y <- rbinom(n,1, p_vector)
-    missing_binary <- ifelse(y==1,1,rbinom(n,1,0.25))
-    gamma1 <- -999
+    
+    #' to generate the missing indicator
+    #' missing method:
+    #' y_single: only using y
+    #' xy: use both x and y
+
+    if (method_indicator == "y_single"){
+      missing_binary <- ifelse(y==1,1,rbinom(n,1,0.25))
+      gamma1 <- -999
+    }else if(method_indicator == "xy"){
+      
+      
+      
+    }else stop("method_indicator input for logistic should be one of y_single, xy.(sample_generator1)")
+    }
   }else{
     #generate normal distribution sample and missing indicator
     #generate response vector
