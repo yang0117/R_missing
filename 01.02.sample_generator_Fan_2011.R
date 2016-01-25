@@ -1,8 +1,7 @@
 #' !!! important: This version has been modified to test scenario, DO NOT use this version
 #'                before you confirm everything.
 
-#' modification note:
-#' add a method to fix the parameter(remove uniroot()) in order to fix the test scenario
+#' change the last two x to rbinom(1,1,0.5)
 
 #sample generator
 #input: n(sample_size),beta_vector,intercept,gamma(input gamma by hand,will be ignored if gamma_estimator_switch=T)
@@ -18,9 +17,6 @@
 #       x_missing_location: indicate which x variable will be used to generate the missing indicator
 #'      error_independent: F: generate the error matrix in 0.5^abs(i-j)
 #'                         T: generate the independent error matrix
-#'      logistics_method: modification to the x dataset to satisfy the special request of the logistic dataset
-#'                        "regular": nothing changed, x dataset will be like the linear regression
-#'                        "Fan_2011": Fan, Li(2011), Example 4.3 
 #output: would be a list, include dataset with missing and dataset for simulation(convert to logistic dataset)
 #        y_logistic, dataset, logistics_sample, method_indicator
 
@@ -35,8 +31,7 @@ sample_generator1 <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), interce
                               error_var=1,
                               y_logistic=F,
                               x_missing_location=1,
-                              error_independent=F,
-                              logistic_method="regular"){
+                              error_independent=F){
   # #number of covariate
   # p <- 50
   # #number of obs
@@ -73,15 +68,12 @@ sample_generator1 <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), interce
 
   if (y_logistic == T){
     #generate logistics sample and missing indicator
-    if(logistic_method == "regular"){
-      x <- x
-    }else if(logistic_method == "Fan_2011"){
-      # change last two x to rbinom(1,1,0.5)
-      for(i in c(length(beta_vector),length(beta_vector)-1)){
-        x_p <- rbinom(n,1,0.5)
-        x[,i] <- x_p
-      }
-    }else stop("logistic_method input for logistic should be one of regular, Fan_2011.(sample_generator1)")
+    # change last two x to rbinom(1,1,0.5)
+    for(i in c(length(beta_vector),length(beta_vector)-1)){
+      x_p <- rbinom(n,1,0.5)
+      x[,i] <- x_p
+    }
+    
     #get the probability vecotr
     x_beta <- x %*% beta_vector + intercept
     p_vector <- exp(x_beta)/(1+exp(x_beta))

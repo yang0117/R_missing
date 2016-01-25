@@ -313,6 +313,14 @@ complete_data
 head(complete_data)
 truehist(complete_data[,1])
 
+rm(list=ls())
+source("01.sample_generator.R")
+sample1 <- sample_generator1(n=100,beta_vector=c(2, 0.5, 1, rep(0,10)),intercept=0,
+                             loss_rate = 1,method_indicator="y_single",
+                             gamma=-0.1, gamma_estimator_switch=F,y_logistic = T,logistic_method = "Fan_2011")
+sample1$dataset
+
+
 
 
 
