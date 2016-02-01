@@ -1,0 +1,45 @@
+---
+title: "Logistics_160113"
+output: 
+    pdf_document:
+      includes:
+        in_header: header.tex
+---
+
+```{r, echo=FALSE, results='asis'}
+#load all file name
+files <-list.files(path = "./data",full.names = T)
+
+for (i in 1:length(files)){
+  load(files[i])
+  #print information for current .rdata file
+  cat("\n\n\\blandscape\n")
+  cat("\n\nbeta : ",paste(table_res1$beta_estimation_all$beta,collapse = " "),"\n\n")
+  cat("intercept : ",table_res1$beta_estimation_all$intercept,"\n\n")
+  cat("sample size : ", as.character(table_res1$beta_estimation_all$sample_size),"\n\n")
+  cat("simulation time : ", table_res1$beta_estimation_all$simulation_time,"\n\n")
+  cat("loss_rate: ", table_res1$beta_estimation_all$lose_rate,"\n\n")
+  cat("error_independent: ", table_res1$beta_estimation_all$error_independent,"\n\n")
+  cat("missing_method: ", table_res1$beta_estimation_all$missing_method,"\n\n")
+  cat("missing_location: ", table_res1$beta_estimation_all$x_missing_location,"\n\n")
+  cat("lambda_location_for_cv(SCAD): ", table_res1$beta_estimation_all$lambda_location_SCAD,"\n\n")
+  cat("lambda_location_for_cv(MCP): ", table_res1$beta_estimation_all$lambda_location_MCP,"\n\n")
+  cat("file_name: ", files[i],"\n\n")
+  #print(paste("beta : ",paste(table_res1$beta_estimation_all$beta,collapse = " ")))
+  #print(paste("sample size is: ",as.character(table_res1$beta_estimation_all$sample_size)))
+  #print current result table
+  table_list <- table_res1$result_list
+  for(i in 1){
+    cat("\n\n",names(table_list)[i],"\n\n")
+    #print(xtable::xtable(mtcars), type = "latex")
+    #print(knitr::kable(round(table_list[[i]],3)), type = "latex")
+    print(knitr::kable(round(table_list[[i]],3)),type = "latex")
+  }
+  cat("\n\n\\elandscape\n")
+  cat("\n\n\\pagebreak\n")
+}
+```
+
+
+
+

@@ -75,13 +75,13 @@ sample_generator1 <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), interce
     #generate logistics sample and missing indicator
     if(logistic_method == "regular"){
       x <- x
-    }else if(logistic_method == "Fan_2011"){
+    }else if(logistic_method == "Fan_2001"){
       # change last two x to rbinom(1,1,0.5)
       for(i in c(length(beta_vector),length(beta_vector)-1)){
         x_p <- rbinom(n,1,0.5)
         x[,i] <- x_p
       }
-    }else stop("logistic_method input for logistic should be one of regular, Fan_2011.(sample_generator1)")
+    }else stop("logistic_method input for logistic should be one of regular, Fan_2001.(sample_generator1)")
     #get the probability vecotr
     x_beta <- x %*% beta_vector + intercept
     p_vector <- exp(x_beta)/(1+exp(x_beta))
@@ -97,6 +97,7 @@ sample_generator1 <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), interce
       missing_binary <- ifelse(y==1,1,rbinom(n,1,0.25))
       gamma1 <- -999
     }else if(method_indicator == "xy"){
+      
       
       
       

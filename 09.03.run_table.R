@@ -37,14 +37,17 @@ run_table <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5)),k=5,interc
 
 run_table17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5)),k=5,intercept=2,
                       filter_vec=c(0.5,1,2),method_indicator,loss_rate,
+                      logistic_method="regular",
                       n_iter_SCAD,n_iter_MCP,error_var,y_logistic,
                       initial_true_indicator_SCAD = F,
                       initial_true_indicator_MCP = F,
                       x_missing_location=1,error_independent=F,
                       lambda_location_SCAD="all",lambda_location_MCP="all"){
+  test_time <- proc.time()
   #generate beta estimation
   beta_est_all <- beta_list_all_method17(n_sim=n_sim,n=n,beta_vector=beta_vector,k=k,intercept=intercept,
                                        method_indicator=method_indicator,loss_rate=loss_rate,
+                                       logistic_method=logistic_method,
                                        n_iter_SCAD=n_iter_SCAD,n_iter_MCP=n_iter_MCP,
                                        error_var=error_var,y_logistic=y_logistic,
                                        initial_true_indicator_SCAD=initial_true_indicator_SCAD,initial_true_indicator_MCP=initial_true_indicator_MCP,
@@ -76,5 +79,8 @@ run_table17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5)),k=5,inte
   
   result <- list(result_list=result_list,beta_diff=result_table_list$beta_diff,
                  beta_estimation_all=beta_est_all)
+  test_time <- proc.time() - test_time
+  print("total time is:")
+  print(test_time)
   return(result)
 }

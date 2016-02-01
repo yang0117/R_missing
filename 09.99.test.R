@@ -762,5 +762,147 @@ for(i in 1:length(sample_size)){
 }
 
 
+############################
+#test for logistics scenario
+#test for 160113
+
+#' note:drgaile_project02 2,1.5,1
+#'      drgaile_project03 3,2,1
+#'      drgaile_project04 3,2,0.5
+#'      drgaile_project05 3,1.5,0.5
+
+rm(list=ls())
+source("09.03.run_table.R")
+
+sample_size<- c(400,200)
+
+beta_list <- list(beta_3_2_1=c(3,2,1,rep(0,5)))
+
+lambda_location <- list(l1_30=1:30)
+
+error_independent_vec=c(T,F)
+
+logistic_method=c("Fan_2001")
+
+
+for(i in 1:length(sample_size)){
+  for(j in 1:length(beta_list)){
+    for(k in 1:length(lambda_location)){
+      for(h in 1:length(error_independent_vec)){
+        for(l in 1:length(logistic_method)){
+          set.seed(123)
+          table_res1 <- run_table17(n_sim=100,n=sample_size[i],beta_vector=beta_list[[j]],k=5,intercept=0,
+                                    filter_vec=c(0.05,0.1,0.3,0.5),method_indicator = "y_single", loss_rate = 0.625,
+                                    n_iter_SCAD=3,n_iter_MCP=3,error_var=1,y_logistic=T,
+                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                    x_missing_location=1,error_independent=error_independent_vec[h],
+                                    lambda_location_SCAD=lambda_location[[k]],lambda_location_MCP=lambda_location[[k]],
+                                    logistic_method=logistic_method[l])
+          file_location=paste("./Logistic_Fan_2011/data/",names(beta_list)[j],"_n_",sample_size[i],
+                              "_lambda_location_",names(lambda_location)[k],"_error_independent_",error_independent_vec[h],
+                              "_logistic_method_",logistic_method[l],".Rdata",sep = "")
+          save(table_res1,file = file_location)
+        }
+      }
+    }
+  }
+}
+
+
+############################
+#test for logistics scenario
+rm(list=ls())
+source("09.03.run_table.R")
+
+sample_size<- c(400,200,600)
+
+number_non_zero <- 10
+beta_t <- runif(number_non_zero,min=1,max=2)
+beta_s <- rbinom(number_non_zero,1,0.5)
+beta_s[which(beta_s==0)] <- -1
+
+beta_ts <- beta_t*beta_s
+
+beta_list <- list(beta_1000=c(beta_ts,rep(0,1000-number_non_zero)))
+
+lambda_location <- list(l1_30=1:30)
+
+error_independent_vec=c(T,F)
+
+logistic_method=c("regular")
+
+
+for(i in 1:length(sample_size)){
+  for(j in 1:length(beta_list)){
+    for(k in 1:length(lambda_location)){
+      for(h in 1:length(error_independent_vec)){
+        for(l in 1:length(logistic_method)){
+          set.seed(123)
+          table_res1 <- run_table17(n_sim=100,n=sample_size[i],beta_vector=beta_list[[j]],k=5,intercept=0,
+                                    filter_vec=c(0.05,0.1,0.3,0.5),method_indicator = "y_single", loss_rate = 0.625,
+                                    n_iter_SCAD=3,n_iter_MCP=3,error_var=1,y_logistic=T,
+                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                    x_missing_location=1,error_independent=error_independent_vec[h],
+                                    lambda_location_SCAD=lambda_location[[k]],lambda_location_MCP=lambda_location[[k]],
+                                    logistic_method=logistic_method[l])
+          file_location=paste("./Logistic_Fan_2014/data/",names(beta_list)[j],"_n_",sample_size[i],
+                              "_lambda_location_",names(lambda_location)[k],"_error_independent_",error_independent_vec[h],
+                              "_logistic_method_",logistic_method[l],".Rdata",sep = "")
+          save(table_res1,file = file_location)
+        }
+      }
+    }
+  }
+}
+
+############################
+#test for scenario
+#test for 160126
+
+#' note:drgaile_project02 2,1.5,1
+#'      drgaile_project03 3,2,1
+#'      drgaile_project04 3,2,0.5
+#'      drgaile_project05 3,1.5,0.5
+
+rm(list=ls())
+source("09.03.run_table.R")
+
+sample_size<- c(200)
+
+beta_list <- list(beta_3_1.5_0.5=c(3,1.5,0.5,rep(0,197)))
+
+lambda_location <- list(l1_30=1:30)
+
+error_independent_vec=c(T,F)
+
+x_missing_location_vec=c(1,3,8)
+
+
+for(i in 1:length(sample_size)){
+  for(j in 1:length(beta_list)){
+    for(k in 1:length(lambda_location)){
+      for(h in 1:length(error_independent_vec)){
+        for(l in 1:length(x_missing_location_vec)){
+          set.seed(123)
+          table_res1 <- run_table17(n_sim=3,n=sample_size[i],beta_vector=beta_list[[j]],k=5,intercept=0,
+                                    filter_vec=c(0.05,0.1,0.3,0.5),method_indicator = "xy", loss_rate = 0.625,
+                                    n_iter_SCAD=3,n_iter_MCP=3,error_var=1,y_logistic=F,
+                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                    x_missing_location=x_missing_location_vec[l],error_independent=error_independent_vec[h],
+                                    lambda_location_SCAD=lambda_location[[k]],lambda_location_MCP=lambda_location[[k]])
+          file_location=paste("./Scenario_160126/data/",names(beta_list)[j],"_n_",sample_size[i],
+                              "_lambda_location_",names(lambda_location)[k],"_error_independent_",error_independent_vec[h],
+                              "_x_missing_location_",x_missing_location_vec[l],".Rdata",sep = "")
+          save(table_res1,file = file_location)
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
 
 
