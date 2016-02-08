@@ -13,9 +13,14 @@ res2 <- beta_list_all_method(n_sim=50,n=50,beta_vector=c(1.5,2,3,rep(0,5)),k=5,i
 
 res_all_beta <- beta_list_all_method(n_sim=10,n=250,beta_vector=c(1.5,2,3,rep(0,5)),k=5,intercept=2)
 
-res17 <- beta_list_all_method17(n_sim=3,n=100,beta_vector=c(3,1.5,rep(0,2),2,rep(0,3)),k=5,intercept=0,
-                                method_indicator="positive",loss_rate=0.7,n_iter_SCAD=3,n_iter_MCP=3,
-                                error_var=1,y_logistic=F,x_missing_location = 1)
+res17 <- beta_list_all_method17(n_sim=15,n=50,beta_vector=c(1.5,2,3,rep(0,5)),k=5,intercept=0,
+                                method_indicator="xy",loss_rate=0.62,logistic_method="xy",n_iter_SCAD=2,n_iter_MCP=2,
+                                error_var=1,y_logistic=F,
+                                initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                x_missing_location=1,error_independent=F,
+                                lambda_location_SCAD="all",lambda_location_MCP="all")
+
+
 
 ############################
 #test for L_infinity_norm
@@ -41,11 +46,24 @@ relative_bias(test_beta_est1, test_beta_true)
 #test for table_all_t0n0
 #use hand input dataset
 test_n <- 10000
-#est: (0,.5,1,0,0,1)
+#test: (0,.5,1,0,0,1)
 #true:(1, 0,1,0,0,1)
 test_beta_est <- cbind(0,rbinom(test_n,1,0.5),rnorm(test_n,5),0,0,rnorm(test_n,0))
 test_beta_vec <- c(1,0,1,0,0,1)
 table_all_t0n0(test_beta_est,test_beta_vec)
+
+
+############################
+#test for table_COU
+#use hand input dataset
+rm(list=ls())
+set.seed(123)
+source("09.03.run_table.R")
+test_n <- 10
+test_beta_est <- cbind(0,rbinom(test_n,1,0.5),rnorm(test_n,5),0,rbinom(test_n,1,0.5),rnorm(test_n,0))
+test_beta_est
+test_beta_vec <- c(0,1,1,0,0,1)
+table_COU(test_beta_est,test_beta_vec) == c(0.3,0.5,0.2)
 
 
 
@@ -92,17 +110,30 @@ beta_est_filter_bias(beta_matrix=test_beta_est,beta_vec=test_beta_vec,1.5)
 
 ############################
 #test for result_table_single
-test_beta_est <- cbind(0,rbinom(test_n,1,0.5),rnorm(test_n,5),0,0,rnorm(test_n,0))
+rm(list=ls())
+set.seed(123)
+source("09.03.run_table.R")
+test_n <- 10
+test_beta_est <- cbind(0,rbinom(test_n,1,0.5),rnorm(test_n,5),0,rbinom(test_n,1,0.5),rnorm(test_n,0))
 test_beta_est
-test_beta_vec <- c(1,1,0,0,0,0)
+test_beta_vec <- c(0,1,1,0,0,1)
 
 result_table_single(beta_result_matrix=test_beta_est,beta_vec=test_beta_vec,method_name="test!!!!!",filter_vec=c(1,0,10))
 
 ############################
 #test for result_table_all
-res_intercept <- result_table_all(beta_result_list=res1,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2))
-res_without_intercept <- result_table_all(beta_result_list=res1_no_intercept,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2))
-all_beta_table <- result_table_all(beta_result_list=res_all_beta,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2))
+rm(list=ls())
+source("09.03.run_table.R")
+res17 <- beta_list_all_method17(n_sim=15,n=50,beta_vector=c(1.5,2,3,rep(0,5)),k=5,intercept=0,
+                                method_indicator="xy",loss_rate=0.62,logistic_method="xy",n_iter_SCAD=2,n_iter_MCP=2,
+                                error_var=1,y_logistic=F,
+                                initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                x_missing_location=1,error_independent=F,
+                                lambda_location_SCAD="all",lambda_location_MCP="all")
+#res_intercept <- result_table_all(beta_result_list=res17,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2))
+#res_without_intercept <- result_table_all(beta_result_list=res1_no_intercept,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2))
+all_beta_table <- result_table_all(beta_result_list=res17,beta_vec=c(1.5,2,3,rep(0,5)),filter_vec=c(0.5,1,2),
+                                   n_iter_SCAD = 2, n_iter_MCP = 2)
 
 save.image(file = "09.full_complete.Rdata")
 
@@ -126,11 +157,20 @@ table_res1
 ############################
 #test for 09.03 for run_table17
 rm(list=ls())
+set.seed(123)
 source("09.03.run_table.R")
-table_res1 <- run_table17(n_sim=100,n=100,beta_vector=c(.5,1,2,rep(0,5)),k=5,intercept=0,
-                          filter_vec=c(0.5,1,2),method_indicator = "positive", loss_rate = 0.8,
-                          n_iter_SCAD=5,n_iter_MCP=5,error_var=1,y_logistic=F)
+table_res1 <- run_table17(n_sim=10,n=80,beta_vector=c(3,1.5,0.5,rep(0,5)),k=5,intercept=0,
+                          filter_vec=c(0.05,0.5,1,2),method_indicator="xy",loss_rate=0.65,
+                          logistic_method="xy",
+                          n_iter_SCAD=2,n_iter_MCP=2,error_var=1,y_logistic=F,
+                          initial_true_indicator_SCAD = F,
+                          initial_true_indicator_MCP = F,
+                          x_missing_location=1,error_independent=F,
+                          lambda_location_SCAD="all",lambda_location_MCP="all")
+                          
 table_res1$result_list[[1]]
+table_res1$result_list[[2]]
+table_res1$result_list
 dim(table_res1$result_table)[1]/4
 table_res1
 save(table_res1,file = "method17A.Rdata")
@@ -901,8 +941,102 @@ for(i in 1:length(sample_size)){
 }
 
 
+############################
+#test for scenario
+#test for 160126
+
+#!!!do not forget to change data store location to current directory
+
+#' note:drgaile_project02 2,1.5,0.5/T
+#'      drgaile_project03 3,1.5,0.5/T
+#'      drgaile_project04 3,2,0.5/T
+#'      drgaile_project05 2,1.5,0.5/F
+#'      drgaile_project06 3,1.5,0.5/F
+#'      drgaile_project07 3,2,0.5/F
 
 
+rm(list=ls())
+source("09.03.run_table.R")
 
+current_path <- "./Scenario_160126/data/"
+
+sample_size<- c(200)
+
+beta_list <- list(beta_3_2_0.5=c(3,1.5,0.5,rep(0,5)))
+
+lambda_location <- list(l1_30=1:30)
+
+error_independent_vec=c(T)
+
+x_missing_location_vec=c(1,3,8)
+
+
+for(i in 1:length(sample_size)){
+  for(j in 1:length(beta_list)){
+    for(k in 1:length(lambda_location)){
+      for(h in 1:length(error_independent_vec)){
+        for(l in 1:length(x_missing_location_vec)){
+          set.seed(123)
+          table_res1 <- run_table17(n_sim=100,n=sample_size[i],beta_vector=beta_list[[j]],k=5,intercept=0,
+                                    filter_vec=c(0.05,0.1,0.3,0.5),method_indicator = "xy", loss_rate = 0.625,
+                                    n_iter_SCAD=3,n_iter_MCP=3,error_var=1,y_logistic=F,
+                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                    x_missing_location=x_missing_location_vec[l],error_independent=error_independent_vec[h],
+                                    lambda_location_SCAD=lambda_location[[k]],lambda_location_MCP=lambda_location[[k]])
+          file_location=paste(current_path,names(beta_list)[j],"_n_",sample_size[i],
+                              "_lambda_location_",names(lambda_location)[k],"_error_independent_",error_independent_vec[h],
+                              "_x_missing_location_",x_missing_location_vec[l],".Rdata",sep = "")
+          save(table_res1,file = file_location)
+        }
+      }
+    }
+  }
+}
+
+#hign dimension
+#' note:drgaile_project02 2,1.5,0.5/T
+#'      drgaile_project03 3,1.5,0.5/T
+#'      drgaile_project04 3,2,0.5/T
+#'      drgaile_project05 2,1.5,0.5/F
+#'      drgaile_project06 3,1.5,0.5/F
+#'      drgaile_project07 3,2,0.5/F
+
+rm(list=ls())
+source("09.03.run_table.R")
+
+current_path <- "./Scenario_160126/data/"
+
+sample_size<- c(200)
+
+beta_list <- list(beta_200_2_1.5_0.5=c(3,2,0.5,rep(0,197)))
+
+lambda_location <- list(l1_30=1:30)
+
+error_independent_vec=c(F)
+
+x_missing_location_vec=c(1,3,8)
+
+
+for(i in 1:length(sample_size)){
+  for(j in 1:length(beta_list)){
+    for(k in 1:length(lambda_location)){
+      for(h in 1:length(error_independent_vec)){
+        for(l in 1:length(x_missing_location_vec)){
+          set.seed(123)
+          table_res1 <- run_table17(n_sim=100,n=sample_size[i],beta_vector=beta_list[[j]],k=5,intercept=0,
+                                    filter_vec=c(0.05,0.1,0.3,0.5),method_indicator = "xy", loss_rate = 0.625,
+                                    n_iter_SCAD=3,n_iter_MCP=3,error_var=1,y_logistic=F,
+                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
+                                    x_missing_location=x_missing_location_vec[l],error_independent=error_independent_vec[h],
+                                    lambda_location_SCAD=lambda_location[[k]],lambda_location_MCP=lambda_location[[k]])
+          file_location=paste(current_path,names(beta_list)[j],"_n_",sample_size[i],
+                              "_lambda_location_",names(lambda_location)[k],"_error_independent_",error_independent_vec[h],
+                              "_x_missing_location_",x_missing_location_vec[l],".Rdata",sep = "")
+          save(table_res1,file = file_location)
+        }
+      }
+    }
+  }
+}
 
 

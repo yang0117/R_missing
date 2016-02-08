@@ -146,8 +146,11 @@ result_table_single <- function(beta_result_matrix,beta_vec,method_name,filter_v
   
   #prepare result names
   #table_col_names <- c("L_inf_norm","rho","tn0en0","tn0e0","t0e0","t0en0")
-  table_col_names <- c("rho","r_sd","L_inf","L_sd","L_1","L_1_sd","L_2","L_2_sd",
-                       names(table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec)))
+  #table_col_names <- c("rho","r_sd","L_inf","L_sd","L_1","L_1_sd","L_2","L_2_sd",
+  #                     names(table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec)))
+  table_col_names <- c("rho","r_sd",
+                       names(table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec)),
+                       names(table_COU(beta_matrix=beta_result_matrix,beta_vec=beta_vec)))
   table_row_names <- c(method_name)
   
   #calculate rho
@@ -157,12 +160,16 @@ result_table_single <- function(beta_result_matrix,beta_vec,method_name,filter_v
   #print(rho)
   
   #first row without filter
-  L_inf_vec <- L_inf(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
-  L_1_vec <- L_1(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
-  L_2_vec <- L_2(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
+  #L_inf_vec <- L_inf(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
+  #L_1_vec <- L_1(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
+  #L_2_vec <- L_2(beta_matrix=beta_result_matrix,beta_vec=beta_vec)
+  #row_without_filter <- c(0,0,
+  #                        L_inf_vec[1],L_inf_vec[2],L_1_vec[1],L_1_vec[2],L_2_vec[1],L_2_vec[2],
+  #                        table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec))
   row_without_filter <- c(0,0,
-                          L_inf_vec[1],L_inf_vec[2],L_1_vec[1],L_1_vec[2],L_2_vec[1],L_2_vec[2],
-                          table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec))
+                          table_all_t0n0(beta_matrix=beta_result_matrix,beta_vec=beta_vec),
+                          table_COU(beta_matrix=beta_result_matrix,beta_vec=beta_vec))
+  
   result <- row_without_filter
   #print(result)
   #ohter row with filter
@@ -171,26 +178,32 @@ result_table_single <- function(beta_result_matrix,beta_vec,method_name,filter_v
       table_row_names <- c(table_row_names,paste(method_name," ",i,sep = ""))
       #print(i)
       current_beta_vec <- beta_est_filter_bias(beta_matrix=beta_result_matrix,beta_vec=beta_vec,th1=i)
-      L_inf_vec_rho <- L_inf(beta_matrix=current_beta_vec,beta_vec=beta_vec)
-      L_1_vec_rho <- L_1(beta_matrix=current_beta_vec,beta_vec=beta_vec)
-      L_2_vec_rho <- L_2(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+      #L_inf_vec_rho <- L_inf(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+      #L_1_vec_rho <- L_1(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+      #L_2_vec_rho <- L_2(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+#       current_row_with_filter <- c(mean(i),sd(i),
+#                                    L_inf_vec_rho[1],L_inf_vec_rho[2],
+#                                    L_1_vec_rho[1],L_1_vec_rho[2],
+#                                    L_2_vec_rho[1],L_2_vec_rho[2],
+#                                    table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec))
       current_row_with_filter <- c(mean(i),sd(i),
-                                   L_inf_vec_rho[1],L_inf_vec_rho[2],
-                                   L_1_vec_rho[1],L_1_vec_rho[2],
-                                   L_2_vec_rho[1],L_2_vec_rho[2],
-                                   table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec))
+                                   table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec),
+                                   table_COU(beta_matrix=current_beta_vec,beta_vec=beta_vec))
     }else{
       table_row_names <- c(table_row_names,paste(method_name," ",i,"*rho",sep = ""))
       #print(i)
       current_beta_vec <- beta_est_filter(beta_matrix=beta_result_matrix,beta_vec=beta_vec,th1=rho*i)
-      L_inf_vec_rho <- L_inf(beta_matrix=current_beta_vec,beta_vec=beta_vec)
-      L_1_vec_rho <- L_1(beta_matrix=current_beta_vec,beta_vec=beta_vec)
-      L_2_vec_rho <- L_2(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+#       L_inf_vec_rho <- L_inf(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+#       L_1_vec_rho <- L_1(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+#       L_2_vec_rho <- L_2(beta_matrix=current_beta_vec,beta_vec=beta_vec)
+#       current_row_with_filter <- c(mean(rho*i),sd(rho*i),
+#                                    L_inf_vec_rho[1],L_inf_vec_rho[2],
+#                                    L_1_vec_rho[1],L_1_vec_rho[2],
+#                                    L_2_vec_rho[1],L_2_vec_rho[2],
+#                                    table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec))
       current_row_with_filter <- c(mean(rho*i),sd(rho*i),
-                                   L_inf_vec_rho[1],L_inf_vec_rho[2],
-                                   L_1_vec_rho[1],L_1_vec_rho[2],
-                                   L_2_vec_rho[1],L_2_vec_rho[2],
-                                   table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec))
+                                   table_all_t0n0(beta_matrix=current_beta_vec,beta_vec=beta_vec),
+                                   table_COU(beta_matrix=current_beta_vec,beta_vec=beta_vec))
     }
     #print(current_row_with_filter)
     result <- rbind(result,current_row_with_filter)
@@ -308,9 +321,9 @@ table_all_t0n0 <- function(beta_matrix,beta_vec){
   # check beta length match
   if ((dim(beta_matrix)[2]) != length(beta_vec)) stop("beta length not match table_all_t0e0")
   # matrix to store result
-  res_matrix <- matrix(-99,dim(beta_matrix)[1],4)
+  res_matrix <- matrix(-99,dim(beta_matrix)[1],6)
   #colnames(res_matrix) <- c("tn0en0","tn0e0","t0e0","t0en0","tn0en0_sd","tn0e0_sd","t0e0_sd","t0en0_sd")
-  colnames(res_matrix) <- c("tn0e0","t0en0","tn0e0_sd","t0en0_sd")
+  colnames(res_matrix) <- c("tn0e0","t0en0","sum","tn0e0_sd","t0en0_sd","sum_sd")
   #generate the table
   nonzero_ind <- which(beta_vec != 0)
   total_covariate <- length(beta_vec)
@@ -321,11 +334,43 @@ table_all_t0n0 <- function(beta_matrix,beta_vec){
     tn0e0 <- nonzero_num - tn0en0
     t0en0 <- sum(beta_current[-nonzero_ind] != 0)
     t0e0 <- total_covariate - nonzero_num - t0en0
-    res_matrix[i,] <- c(tn0e0,t0en0,rep(-99,2))
+    sum <- tn0e0 + t0en0
+    res_matrix[i,] <- c(tn0e0,t0en0,sum,rep(-99,3))
   }
   result <- colMeans(res_matrix)
-  sd <- apply(res_matrix[,1:2],2,sd)
-  result[3:4] <- sd
+  sd <- apply(res_matrix[,1:3],2,sd)
+  result[4:6] <- sd
+  return(result)
+}
+
+####################################
+#' table_COU: define a function that calculate mean of correct-fit, over-fit, under-fit status for
+#'            each observation
+#' input: beta_estimation matrix(every row is an estimation, it does NOT inlcude intercept), 
+#'        true value of beta,
+#' output: a vector that store the average value for all rows as c-fit for correct fitting,
+#'         o-fit for over-fitting, u-fit for under fitting
+
+table_COU <- function(beta_matrix,beta_vec){
+  # check beta length match
+  if ((dim(beta_matrix)[2]) != length(beta_vec)) stop("beta length not match table_all_t0e0")
+  # matrix to store result
+  res_matrix <- matrix(-99,dim(beta_matrix)[1],3)
+  colnames(res_matrix) <- c("c-fit","o-fit","u-fit")
+  #generate the table
+  nonzero_ind_true <- which(beta_vec != 0)
+  zero_ind_true <- which(beta_vec == 0)
+  for (i in 1:dim(beta_matrix)[1]){
+    beta_current <- beta_matrix[i,]
+    if(sum(beta_current[zero_ind_true] !=0) != 0){
+      res_matrix[i,] <- c(0,1,0)
+    }else if(sum(beta_current[nonzero_ind_true] == 0) !=0){
+      res_matrix[i,] <- c(0,0,1)
+    }else{
+      res_matrix[i,] <- c(1,0,0)
+    }
+  }
+  result <- colMeans(res_matrix)
   return(result)
 }
 
@@ -380,6 +425,7 @@ beta_est_filter_bias <- function(beta_matrix,beta_vec,th1){
   }
   return(beta_after_filter)
 }
+
 
 
 

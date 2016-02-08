@@ -69,6 +69,8 @@ run_table17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5)),k=5,inte
   for(i in 1:length(filter_vec)){
     relative_ratio_index_matrix[i,] <- result_table_row_index+i
   }
+  #remove index for full and complete data
+  relative_ratio_index_matrix <- relative_ratio_index_matrix[,-(1:6)]
   
   #assign value to result list
   result_list <- list()

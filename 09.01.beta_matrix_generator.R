@@ -106,7 +106,7 @@ beta_list_all_method17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5
                                    method_indicator,loss_rate,logistic_method,n_iter_SCAD,n_iter_MCP,
                                    error_var=1,y_logistic=F,
                                    initial_true_indicator_SCAD=F,initial_true_indicator_MCP=F,
-                                   x_missing_location=x_missing_location,error_independent=error_independent,
+                                   x_missing_location,error_independent,
                                    lambda_location_SCAD="all",lambda_location_MCP="all"){
   
   print("!!! important: This version has been modified to test scenario, DO NOT use this version before you confirm everything.
