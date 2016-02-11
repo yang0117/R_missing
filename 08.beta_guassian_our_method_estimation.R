@@ -78,7 +78,9 @@ beta_est_logistics <- function(sample_logistic=sample_logistic,sample_complete=s
                                lambda_location_SCAD="all",lambda_location_MCP="all"){
   
   #first, get the lasso estimation
+  print("get path")
   lam_path1 <- glmnet(sample_logistic[,-1],factor(sample_logistic[,1],levels=c(0,1)),family="binomial",intercept = F,standardize = F)$lambda
+  print("end of getting path")
   #lam_path1 <- lam_path1[seq(1,length(lam_path1),by=3)]
   #get the lambda value we need
   lambda_value <- initial_universial_calculator(sample_original=sample_complete,sample_logistic=sample_logistic,k=k,
@@ -88,12 +90,14 @@ beta_est_logistics <- function(sample_logistic=sample_logistic,sample_complete=s
   print(beta_lasso)
   
   #second, get the SCAD estimation
+  print("begein SCAD")
   SCAD_est <- beta_iteration_est(sample_logistic=sample_logistic,sample_complete=sample_complete,
-                                 k=k,n_iteration=n_iter_SCAD,weight_fun=SCAD_iteration_weight)
+                                 k=k,n_iteration=n_iter_SCAD,weight_fun=SCAD_iteration_weight,lambda_location=lambda_location_SCAD)
+  print("end SCAD")
   
   #third, get the MCP estimation
   MCP_est <- beta_iteration_est(sample_logistic=sample_logistic,sample_complete=sample_complete,
-                                 k=k,n_iteration=n_iter_MCP,weight_fun=MCP_iteration_weight)
+                                 k=k,n_iteration=n_iter_MCP,weight_fun=MCP_iteration_weight,lambda_location=lambda_location_MCP)
   
   beta_all <- list(beta_lasso=beta_lasso,beta_SCAD=SCAD_est$beta,beta_MCP=MCP_est$beta,
                    lasso_for_SCAD_count=lasso_for_SCAD_count, lasso_for_MCP_count=lasso_for_MCP_count,
@@ -131,7 +135,9 @@ beta_est_logistics <- function(sample_logistic=sample_logistic,sample_complete=s
 beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=sample_complete,
                                k=k,n_iteration=0,weight_fun,lambda_location="all"){
   #get the lasso model and lambda path
+  print("begin get iteration path")
   lasso_fit <- glmnet(sample_logistic[,-1],factor(sample_logistic[,1],levels=c(0,1)),family="binomial",intercept = F,standardize = F)
+  print("end get iteration path")
   #generate lasso estimation matrix
   #this matrix has intercept column
   beta_lasso_matrix <- beta_lasso_model_lambda(lasso_fit)
@@ -139,6 +145,8 @@ beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=s
   if(paste(lambda_location,collapse = "") == "all"){
     lambda_path_ini <- lambda_path_lasso
     beta_lasso_matrix <- beta_lasso_matrix
+    print("lambda ini for 'all' is: ")
+    print(lambda_path_ini)
   }else if(all(is.numeric(lambda_location))){
     if(max(lambda_location)<=length(lambda_path_lasso)){
       lambda_path_ini <- lambda_path_lasso[lambda_location]
@@ -173,6 +181,7 @@ beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=s
     for(i in 1:n_iteration){
       if(i==1){
         #step1:
+        print("begin first iteration")
         current_lambda_path <- lambda_path_ini
         current_beta_matrix <- beta_lasso_matrix
         #generate weight matrix
@@ -183,20 +192,25 @@ beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=s
         for(j in 1:length(current_lambda_path)){
           current_weight_matrix[j,] <- weight_fun(current_beta_matrix[j,][-1],current_lambda_path[j])
         }
+        print("end step1")
         #step2:
         zero_test <- apply(current_weight_matrix != 0,1,sum)
         no_zero_weight_ind <- which(zero_test != 0)
         current_lambda_path <- current_lambda_path[no_zero_weight_ind]
         current_weight_matrix <- current_weight_matrix[no_zero_weight_ind,]
+        print("end step2")
         #step3:
         #creat current_beta_est matrix
         current_beta_est <- current_beta_matrix[no_zero_weight_ind,]
         current_beta_est[,] <- -99
         for(j in 1:dim(current_weight_matrix)[1]){
           current_beta_est[j,] <- beta_est_weight(sample_logistic = sample_logistic,weights = current_weight_matrix[j,])
+          print(j)
         }
+        print("end step3")
         #step4:
         current_ind <- cv_weight_finder(sample_complete=sample_complete,sample_logistic=sample_logistic,k=k,weight_matrix=current_weight_matrix)
+        print("the index choosed is")
         print(current_ind)
         #assign result
         if(dim(current_beta_est)[1]!=dim(current_weight_matrix)[1]) stop("row in current_beta_est and current_weight_matrix does not match(beta_iteration_est)")
@@ -205,6 +219,8 @@ beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=s
         beta_iteration_res[i,] <- current_beta_est[current_ind,]
         weight_iteration_res[i,] <- current_weight_matrix[current_ind,]
         lambda_iteration_res[i] <- current_lambda_path[current_ind]
+        print("end step4")
+        print("end first iteration")
       }else{
         #step1:
         current_lambda_path <- current_lambda_path
@@ -231,6 +247,7 @@ beta_iteration_est <- function(sample_logistic=sample_logistic,sample_complete=s
         }
         #step4:
         current_ind <- cv_weight_finder(sample_complete=sample_complete,sample_logistic=sample_logistic,k=k,weight_matrix=current_weight_matrix)
+        print("the index choosed is")
         print(current_ind)
         #assign result
         if(dim(current_beta_est)[1]!=dim(current_weight_matrix)[1]) stop("row in current_beta_est and current_weight_matrix does not match(beta_iteration_est)")

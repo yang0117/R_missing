@@ -958,13 +958,13 @@ for(i in 1:length(sample_size)){
 rm(list=ls())
 source("09.03.run_table.R")
 
-current_path <- "./Scenario_160126/data/"
+current_path <- "./Scenario_160204/data/"
 
 sample_size<- c(200)
 
 beta_list <- list(beta_3_2_0.5=c(3,1.5,0.5,rep(0,5)))
 
-lambda_location <- list(l1_30=1:30)
+lambda_location <- list(l1_30=20:60)
 
 error_independent_vec=c(T)
 
@@ -997,24 +997,25 @@ for(i in 1:length(sample_size)){
 #' note:drgaile_project02 2,1.5,0.5/T
 #'      drgaile_project03 3,1.5,0.5/T
 #'      drgaile_project04 3,2,0.5/T
+#'      
 #'      drgaile_project05 2,1.5,0.5/F
 #'      drgaile_project06 3,1.5,0.5/F
 #'      drgaile_project07 3,2,0.5/F
 
 rm(list=ls())
 source("09.03.run_table.R")
-
+options(warn=0)
 current_path <- "./Scenario_160126/data/"
 
 sample_size<- c(200)
 
-beta_list <- list(beta_200_2_1.5_0.5=c(3,2,0.5,rep(0,197)))
+beta_list <- list(beta_200_3_1.5_0.5=c(3,1.5,0.5,rep(0,197)))
 
-lambda_location <- list(l1_30=1:30)
+lambda_location <- list(l30_60=30:60)
 
 error_independent_vec=c(F)
 
-x_missing_location_vec=c(1,3,8)
+x_missing_location_vec=c(8)
 
 
 for(i in 1:length(sample_size)){

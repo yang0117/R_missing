@@ -45,10 +45,6 @@ gamma_cal <- function(n=100, beta_vector=c(1.5, 2, 3, rep(0,5)), intercept=99,
   # 
   # gamma is the lost rate
   # gamma_estimator_switch <- T
-  # 
-  print("!!! important: This version has been modified to test scenario, DO NOT use this version before you confirm everything.
-        Many parameter does not mean what they are in the original version(method_indicator).
-        Added 'xy' method.")
   p=length(beta_vector)
   #covariance matrix of covariate
   x_sigma <- matrix(0,p,p)

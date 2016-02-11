@@ -157,6 +157,7 @@ beta_list_all_method17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5
 #   }
   
   #get the gamma value which are used to generate sample
+  print("decided gamma value")
   n_run <- 1000
   gamma_vec <- numeric(n_run)
   for (i in 1:n_run){
@@ -188,28 +189,35 @@ beta_list_all_method17 <- function(n_sim=100,n=250,beta_vector=c(1.5,2,3,rep(0,5
                                  gamma=gamma_est, gamma_estimator_switch=F,x_missing_location=x_missing_location,
                                  error_independent=error_independent,logistic_method=logistic_method)
     #full data
+    print("generate full data")
     sample_full <- as.matrix(sample1$dataset)[,-1]
     n_row_full[i] <- dim(sample_full)[1]
     print(paste("dim for full data is", paste(dim(sample_full),collapse=" ")))
     #print(sample_full)
+    print("calculate full result")
     FLASSO[i,] <- beta_est_gaussian(sample_gaussian=sample_full,k=k,penalty="lasso")
     FSCAD[i,] <- beta_est_gaussian(sample_gaussian=sample_full,k=k,penalty="SCAD")
     FMCP[i,] <- beta_est_gaussian(sample_gaussian=sample_full,k=k,penalty="MCP")
     NOPENALTY[[1]][i,] <- lm(sample_full[,1]~sample_full[,-1])$coefficients
     #complete data
+    print("generate complete data")
     sample_complete <- as.matrix(subset(sample1$dataset,missing_indicator==1,select = -missing_indicator))
     print(paste("dim for complete data is", paste(dim(sample_complete),collapse=" ")))
     n_row_complete[i] <- dim(sample_complete)[1] 
     #print(sample_complete)
+    print("calculate complete result")
     CLASSO[i,] <- beta_est_gaussian(sample_gaussian=sample_complete,k=k,penalty="lasso")
     CSCAD[i,] <- beta_est_gaussian(sample_gaussian=sample_complete,k=k,penalty="SCAD")
     CMCP[i,] <- beta_est_gaussian(sample_gaussian=sample_complete,k=k,penalty="MCP")
     NOPENALTY[[2]][i,] <- lm(sample_complete[,1]~sample_complete[,-1])$coefficients
     #our_method(logistic data)
+    
     sample_logistic <- as.matrix(sample1$logistic_sample)
     n_row_logistic[i] <- dim(sample_logistic)[1]
-    NOPENALTY[[3]][i,] <- c(0,glm(sample_logistic[,1]~sample_logistic[,-1]-1,family="binomial")$coefficients)
+    #NOPENALTY[[3]][i,] <- c(0,glm(sample_logistic[,1]~sample_logistic[,-1]-1,family="binomial")$coefficients)
+    NOPENALTY[[3]][i,] <- c(0,beta_vector)
     print(dim(sample_logistic))
+    print("calculate logisitcs result")
     logistic_res <- beta_est_logistics(sample_logistic=sample_logistic,sample_complete=sample_complete,k=k,
                                        n_iter_SCAD=n_iter_SCAD,n_iter_MCP=n_iter_MCP,
                                        lasso_for_SCAD_count = lasso_for_SCAD_count, lasso_for_MCP_count = lasso_for_MCP_count,
